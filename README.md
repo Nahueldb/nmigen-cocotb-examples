@@ -20,17 +20,3 @@ b_ready <--|              |
                |       |
               rst     clk
 ```
-
-Tanto las dos entradas como la salida cumplen un protocolo genérico stream con las
-siguientes características:
-
-* Las señales `_data` tienen N bits definidas durante la instanciación.
-* La cantidad de bits de `r_data` quedan a definir por el diseñador. Algunas posibles alternativas son:
-    * A definir durante la instanciación
-    * Igual que la entrada
-    * Un bit mas que la entrada 
-* El dato `_data` es leído por el sumidero cuando `_valid` y `_ready` están en 1
-* La señal `_valid` no puede depender depender de la señal `_ready` para ir a 1.
-
-Todas los datos que salgan por el puerto `r` deben ser un resultado valido entre los datos
-del puerto `a` y puerto `b`. No se debe realizar corroboración de overflow.
